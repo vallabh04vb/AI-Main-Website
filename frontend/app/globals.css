@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Obsidian Minimalism Theme */
+    --background: 0 0% 2%;        /* #050505 - Pure obsidian black */
+    --foreground: 0 0% 93%;       /* #EDEDED - Off-white text */
+    --card: 0 0% 5%;              /* #0D0D0D - Card surfaces, slightly lifted */
+    --card-foreground: 0 0% 93%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 0 0% 100%;         /* Pure white for primary actions */
+    --primary-foreground: 0 0% 2%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 93%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 50%; /* #808080 - better readability than 45% */
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 93%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 93%;
+    --border: 0 0% 12%;           /* #1F1F1F - slightly more visible borders */
+    --input: 0 0% 12%;
+    --ring: 0 0% 30%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(180deg, #EDEDED 0%, #808080 100%);
+  }
+
+  .glass {
+    background: rgba(5, 5, 5, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 0.5px solid hsl(var(--border));
+  }
+
+  .glass-card {
+    background: hsl(var(--card));
+    border: 0.5px solid hsl(var(--border));
+    border-radius: var(--radius);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    border-color: hsl(0 0% 20%);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
+  }
+
+  .glow-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 4px 24px -6px rgba(255, 255, 255, 0.05);
+    border-color: hsl(0 0% 22%);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(circle, hsl(0 0% 15%) 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
+    opacity: 0.15;
+  }
+
+  .section-border {
+    border-top: 0.5px solid hsl(var(--border));
+  }
+
+  /* Alternating section surfaces for visual depth */
+  .section-elevated {
+    background-color: hsl(0 0% 3.5%);
+  }
+}
