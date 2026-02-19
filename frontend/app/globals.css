@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    /* Obsidian Minimalism Theme */
-    --background: 0 0% 2%;        /* #050505 - Pure obsidian black */
-    --foreground: 0 0% 93%;       /* #EDEDED - Off-white text */
-    --card: 0 0% 5%;              /* #0D0D0D - Card surfaces, slightly lifted */
+    /* Obsidian Theme — CorePlex.ai */
+    --background: 220 8% 3%;      /* #070809 - near-black with cool tint */
+    --foreground: 0 0% 93%;       /* #EDEDED */
+    --card: 220 6% 6%;            /* #0E1012 - lifted cards */
     --card-foreground: 0 0% 93%;
-    --popover: 0 0% 5%;
+    --popover: 220 6% 6%;
     --popover-foreground: 0 0% 93%;
-    --primary: 0 0% 100%;         /* Pure white for primary actions */
-    --primary-foreground: 0 0% 2%;
-    --secondary: 0 0% 8%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 220 8% 3%;
+    --secondary: 220 5% 9%;
     --secondary-foreground: 0 0% 93%;
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 50%; /* #808080 - better readability than 45% */
-    --accent: 0 0% 10%;
+    --muted: 220 5% 9%;
+    --muted-foreground: 220 3% 50%;  /* Slightly cool muted */
+    --accent: 220 5% 11%;
     --accent-foreground: 0 0% 93%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 93%;
-    --border: 0 0% 12%;           /* #1F1F1F - slightly more visible borders */
-    --input: 0 0% 12%;
-    --ring: 0 0% 30%;
+    --border: 220 5% 13%;           /* Visible cool-tinted borders */
+    --input: 220 5% 13%;
+    --ring: 220 5% 30%;
     --radius: 0.5rem;
   }
 }
@@ -44,11 +44,11 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(180deg, #EDEDED 0%, #808080 100%);
+    background-image: linear-gradient(180deg, #EDEDED 0%, #707070 100%);
   }
 
   .glass {
-    background: rgba(5, 5, 5, 0.75);
+    background: hsla(220, 8%, 4%, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 0.5px solid hsl(var(--border));
@@ -58,35 +58,79 @@
     background: hsl(var(--card));
     border: 0.5px solid hsl(var(--border));
     border-radius: var(--radius);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-card:hover {
-    border-color: hsl(0 0% 20%);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
+    border-color: hsl(220 5% 22%);
+    box-shadow: 0 0 0 1px hsla(220, 10%, 90%, 0.03),
+                0 8px 32px -8px hsla(220, 10%, 5%, 0.5);
   }
 
   .glow-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glow-hover:hover {
-    box-shadow: 0 4px 24px -6px rgba(255, 255, 255, 0.05);
-    border-color: hsl(0 0% 22%);
+    box-shadow: 0 0 24px -4px hsla(220, 20%, 70%, 0.06),
+                0 8px 32px -8px hsla(220, 10%, 5%, 0.4);
+    border-color: hsl(220 5% 24%);
   }
 
   .dot-grid {
-    background-image: radial-gradient(circle, hsl(0 0% 15%) 0.5px, transparent 0.5px);
+    background-image: radial-gradient(circle, hsl(220 5% 18%) 0.5px, transparent 0.5px);
     background-size: 40px 40px;
-    opacity: 0.15;
+    opacity: 0.12;
   }
 
   .section-border {
     border-top: 0.5px solid hsl(var(--border));
   }
 
-  /* Alternating section surfaces for visual depth */
-  .section-elevated {
-    background-color: hsl(0 0% 3.5%);
+  /* Section surfaces — break the monotone with subtle tinted gradients */
+  .section-blue {
+    background: linear-gradient(180deg,
+      hsl(220 12% 5%) 0%,
+      hsl(220 15% 6.5%) 50%,
+      hsl(220 12% 5%) 100%
+    );
+  }
+
+  .section-purple {
+    background: linear-gradient(180deg,
+      hsl(260 10% 5%) 0%,
+      hsl(260 12% 7%) 50%,
+      hsl(260 10% 5%) 100%
+    );
+  }
+
+  .section-warm {
+    background: linear-gradient(180deg,
+      hsl(30 8% 4.5%) 0%,
+      hsl(30 10% 6%) 50%,
+      hsl(30 8% 4.5%) 100%
+    );
+  }
+
+  /* Gradient border effect on hover */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    padding: 0.5px;
+    background: linear-gradient(135deg, hsla(220, 30%, 40%, 0.2), hsla(260, 30%, 40%, 0.1), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .gradient-border:hover::before {
+    opacity: 1;
   }
 }

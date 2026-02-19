@@ -10,17 +10,17 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "name.ai | Elite Applied AI Engineering Studio",
+  title: "CorePlex.ai | Elite Applied AI Engineering Studio",
   description: "We engineer high-scale AI systems that subtract manual toil from your core operations. Vision pipelines, intelligent data engines, autonomous voice, and enterprise automation — prototype-first, production-ready.",
   keywords: ["AI engineering studio", "computer vision pipelines", "industrial automation", "voice AI", "intelligent data extraction", "enterprise AI", "AWS EKS", "production AI systems"],
   openGraph: {
-    title: "name.ai | Elite Applied AI Engineering Studio",
+    title: "CorePlex.ai | Elite Applied AI Engineering Studio",
     description: "Engineering intelligence for operational excellence. We analyze, prototype, and deploy high-scale AI systems that subtract manual toil from your core logic.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "name.ai | Elite Applied AI Engineering Studio",
+    title: "CorePlex.ai | Elite Applied AI Engineering Studio",
     description: "Engineering intelligence for operational excellence. Vision pipelines, intelligent data engines, and autonomous voice systems.",
   },
 }

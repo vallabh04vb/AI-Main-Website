@@ -20,17 +20,15 @@ export function Footer() {
     <footer className="section-border bg-background">
       <div className="container py-16 md:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
-          {/* Brand */}
           <div className="md:col-span-5 space-y-4">
             <h3 className="text-lg font-bold text-foreground tracking-tighter">
-              name<span className="text-muted-foreground">.</span>ai
+              Core<span className="text-muted-foreground">Plex</span><span className="text-foreground/40">.</span>ai
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Elite Applied AI Engineering Studio. We engineer intelligence that subtracts manual toil from your core operations.
             </p>
           </div>
 
-          {/* Services */}
           <div className="md:col-span-4 space-y-4">
             <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">
               Services
@@ -49,7 +47,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
           <div className="md:col-span-3 space-y-4">
             <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">
               Company
@@ -69,10 +66,9 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} name.ai. All rights reserved.
+            &copy; {new Date().getFullYear()} CorePlex.ai. All rights reserved.
           </p>
         </div>
       </div>

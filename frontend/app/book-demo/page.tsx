@@ -7,7 +7,7 @@ import { ArrowRight, ExternalLink, Calendar, MessageSquare, Quote } from "lucide
 
 const testimonials = [
   {
-    quote: "name.ai built us a working vision pipeline prototype in under two weeks. We went from concept to production monitoring across three warehouses within a quarter.",
+    quote: "CorePlex.ai built us a working vision pipeline prototype in under two weeks. We went from concept to production monitoring across three warehouses within a quarter.",
     name: "Director of Operations",
     company: "Logistics & Warehousing",
   },

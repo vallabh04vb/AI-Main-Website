@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Eye, FileSearch, Phone, Brain, TrendingUp } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Services | name.ai — Elite AI Engineering Studio",
+  title: "Services | CorePlex.ai — Elite AI Engineering Studio",
   description: "VisionOps, Intelligent Data Engines, Autonomous Voice, Neural Knowledge Wrappers, and Automated Growth Intelligence. Production-grade AI systems for operational excellence.",
 }
 
@@ -72,25 +72,25 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="container py-20 md:py-32">
-      <div className="max-w-3xl mb-20">
+      <div className="max-w-3xl mx-auto text-center mb-20">
         <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-4 block">
           What We Engineer
         </span>
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-foreground mb-6">
           Services & Capabilities
         </h1>
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          Five pillars of applied AI engineering. Each purpose-built for operational scale, production reliability, and measurable impact.
+        <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
+          Five pillars of applied AI engineering. Purpose-built for operational scale and measurable impact.
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="max-w-5xl mx-auto space-y-6">
         {services.map((service) => {
           const Icon = service.icon
           return (
-            <div key={service.title} className="glass-card p-8 md:p-10 group glow-hover">
+            <div key={service.title} className="glass-card glow-hover gradient-border p-8 md:p-10 group">
               <div className="flex items-start gap-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-border bg-background group-hover:border-foreground/20 transition-colors">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-border bg-background group-hover:border-foreground/15 transition-colors">
                   <Icon className="h-5 w-5 text-foreground" strokeWidth={1.5} />
                 </div>
                 <div className="flex-1 space-y-4">

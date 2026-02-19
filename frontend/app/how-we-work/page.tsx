@@ -4,8 +4,8 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "The Prototype-First Journey | name.ai",
-  description: "We build a live proof of concept before any commitment. Four steps from operational problem to production-grade AI system. Zero-risk, prototype-first.",
+  title: "The Prototype-First Journey | CorePlex.ai",
+  description: "We build a live proof of concept before any commitment. Four steps from operational problem to production-grade AI system.",
 }
 
 const steps = [
@@ -58,7 +58,6 @@ const steps = [
 export default function HowWeWorkPage() {
   return (
     <div className="container py-20 md:py-32">
-      {/* Centered header */}
       <div className="max-w-3xl mx-auto text-center mb-20">
         <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-4 block">
           Our Process
@@ -71,10 +70,9 @@ export default function HowWeWorkPage() {
         </p>
       </div>
 
-      {/* Centered steps grid — 2 columns */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
         {steps.map((step) => (
-          <div key={step.number} className="glass-card glow-hover p-8 group">
+          <div key={step.number} className="glass-card glow-hover gradient-border p-8 group">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-background border border-border text-foreground font-mono text-xs font-bold mb-6 group-hover:border-foreground/20 transition-colors">
               {step.number}
             </div>
@@ -92,7 +90,6 @@ export default function HowWeWorkPage() {
         ))}
       </div>
 
-      {/* CTA */}
       <div className="mt-20 max-w-2xl mx-auto text-center">
         <h2 className="text-2xl font-bold text-foreground tracking-tighter mb-3">Ready to start?</h2>
         <p className="text-muted-foreground leading-relaxed mb-8">

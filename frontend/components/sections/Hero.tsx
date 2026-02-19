@@ -13,14 +13,26 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   })
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
-  const contentY = useTransform(scrollYProgress, [0, 0.6], [0, -40])
+
+  // Layer 1: Background image — slowest (deep)
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"])
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
+
+  // Layer 2: Grid pattern — medium speed
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
+  const gridOpacity = useTransform(scrollYProgress, [0, 0.8], [0.12, 0])
+
+  // Layer 3: Content — fastest (foreground), fades out
+  const contentY = useTransform(scrollYProgress, [0, 0.6], [0, -60])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  // Layer 4: Ambient glow — drifts independently
+  const glowX = useTransform(scrollYProgress, [0, 1], ["-5%", "10%"])
+  const glowY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"])
 
   return (
     <section ref={ref} className="relative overflow-hidden min-h-screen flex flex-col justify-center">
-      {/* Parallax Background — AI Neural Network */}
+      {/* Layer 1: Parallax Background Image (deepest) */}
       <motion.div className="absolute inset-0" style={{ y: imageY, scale: imageScale }}>
         <Image
           src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1920&h=1080&fit=crop&q=80"
@@ -29,20 +41,50 @@ export function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/85 to-[#050505]/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-[#050505]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070809] via-[#070809]/90 to-[#070809]/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070809] via-[#070809]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070809]/60 via-transparent to-[#070809]" />
       </motion.div>
 
-      {/* Parallax dot grid */}
+      {/* Layer 2: Moving Grid Pattern (mid-depth) */}
       <motion.div
-        className="absolute inset-0 dot-grid pointer-events-none"
-        style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "15%"]) }}
-      />
+        className="absolute inset-0 pointer-events-none"
+        style={{ y: gridY, opacity: gridOpacity }}
+      >
+        <div className="absolute inset-0 dot-grid" />
+        {/* Fine line grid overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, hsla(220, 10%, 25%, 0.04) 1px, transparent 1px),
+              linear-gradient(to bottom, hsla(220, 10%, 25%, 0.04) 1px, transparent 1px)
+            `,
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </motion.div>
 
+      {/* Layer 3: Ambient gradient glow (drifts on scroll) */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ x: glowX, y: glowY }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 40% 30% at 70% 40%, hsla(220, 40%, 25%, 0.1) 0%, transparent 70%),
+              radial-gradient(ellipse 30% 25% at 20% 80%, hsla(260, 30%, 20%, 0.06) 0%, transparent 70%)
+            `,
+          }}
+        />
+      </motion.div>
+
+      {/* Layer 4: Content (foreground — moves fastest) */}
       <motion.div
         className="relative z-10 container"
-        style={{ opacity: contentOpacity, y: contentY }}
+        style={{ y: contentY, opacity: contentOpacity }}
       >
         <div className="max-w-5xl py-32 md:py-40 lg:py-48">
           {/* Eyebrow */}
@@ -56,12 +98,25 @@ export function Hero() {
             </span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Floating Headline — subtle continuous animation */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+            animate={{
+              opacity: 1,
+              y: [0, -6, 0],
+            }}
+            transition={{
+              opacity: { duration: 0.8, delay: 0.1 },
+              y: {
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "mirror",
+                ease: "easeInOut",
+                delay: 1,
+              },
+            }}
             className="text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold text-foreground leading-[1.05] tracking-tighter mb-8"
+            style={{ transform: "translateZ(40px)" }}
           >
             Engineering Intelligence
             <br />
@@ -109,7 +164,7 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Bottom fade */}
+      {/* Bottom gradient line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   )

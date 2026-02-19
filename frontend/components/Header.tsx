@@ -29,11 +29,10 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center">
           <span className="text-xl font-bold text-foreground tracking-tighter">
-            name<span className="text-muted-foreground">.</span>ai
+            Core<span className="text-muted-foreground">Plex</span><span className="text-foreground/40">.</span>ai
           </span>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => (
             <Link
@@ -77,7 +76,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
