@@ -14,21 +14,21 @@ export function Hero() {
     offset: ["start start", "end start"],
   })
 
-  // Layer 1: Background image — slowest (deep)
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"])
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
+  // Layer 1: Background image — moves DRAMATICALLY slower than scroll (big parallax)
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.35])
 
-  // Layer 2: Grid pattern — medium speed
-  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
-  const gridOpacity = useTransform(scrollYProgress, [0, 0.8], [0.12, 0])
+  // Layer 2: Grid pattern — medium speed, creates clear depth separation
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+  const gridOpacity = useTransform(scrollYProgress, [0, 0.7], [0.15, 0])
 
-  // Layer 3: Content — fastest (foreground), fades out
-  const contentY = useTransform(scrollYProgress, [0, 0.6], [0, -60])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  // Layer 3: Content — moves UP fast as you scroll (opposite direction to image)
+  const contentY = useTransform(scrollYProgress, [0, 0.6], [0, -150])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0])
 
-  // Layer 4: Ambient glow — drifts independently
-  const glowX = useTransform(scrollYProgress, [0, 1], ["-5%", "10%"])
-  const glowY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"])
+  // Layer 4: Ambient glow — drifts large range
+  const glowX = useTransform(scrollYProgress, [0, 1], ["-15%", "20%"])
+  const glowY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"])
 
   return (
     <section ref={ref} className="relative overflow-hidden min-h-screen flex flex-col justify-center">

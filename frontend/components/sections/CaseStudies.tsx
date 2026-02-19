@@ -20,10 +20,10 @@ export function CaseStudies() {
     offset: ["start end", "end start"],
   })
 
-  // Depth parallax — heading and cards at different speeds
-  const headingY = useTransform(scrollYProgress, [0, 1], [50, -30])
-  const cardsY = useTransform(scrollYProgress, [0, 1], [70, -10])
-  const orbY = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"])
+  // Large depth parallax — clearly visible difference between heading and cards
+  const headingY = useTransform(scrollYProgress, [0, 1], [120, -80])
+  const cardsY = useTransform(scrollYProgress, [0, 1], [180, -40])
+  const orbY = useTransform(scrollYProgress, [0, 1], ["-40%", "40%"])
 
   return (
     <section ref={ref} className="py-28 section-border section-purple relative overflow-hidden">

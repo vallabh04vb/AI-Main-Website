@@ -48,13 +48,13 @@ export function Services() {
     offset: ["start end", "end start"],
   })
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
-  const orbX = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
-  const orbY = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"])
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"])
+  const orbX = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
+  const orbY = useTransform(scrollYProgress, [0, 1], ["30%", "-30%"])
 
-  // Different parallax speeds for heading vs cards — creates depth
-  const headingY = useTransform(scrollYProgress, [0, 1], [40, -20])
-  const cardsY = useTransform(scrollYProgress, [0, 1], [60, -10])
+  // Large parallax difference between heading and cards — clearly visible depth
+  const headingY = useTransform(scrollYProgress, [0, 1], [100, -60])
+  const cardsY = useTransform(scrollYProgress, [0, 1], [150, -30])
 
   return (
     <section ref={sectionRef} className="py-28 section-border section-blue relative overflow-hidden">
