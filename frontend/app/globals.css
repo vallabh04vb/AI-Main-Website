@@ -133,4 +133,32 @@
   .gradient-border:hover::before {
     opacity: 1;
   }
+
+  /* Dialog custom scrollbar */
+  .dialog-panel {
+    scrollbar-width: thin;
+    scrollbar-color: hsla(220, 5%, 25%, 0.5) transparent;
+  }
+  .dialog-panel::-webkit-scrollbar {
+    width: 6px;
+  }
+  .dialog-panel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .dialog-panel::-webkit-scrollbar-thumb {
+    background: hsla(220, 5%, 25%, 0.5);
+    border-radius: 3px;
+  }
+  .dialog-panel::-webkit-scrollbar-thumb:hover {
+    background: hsla(220, 5%, 35%, 0.6);
+  }
+
+  /* Testimonial carousel */
+  @keyframes carousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-carousel {
+    animation: carousel 25s linear infinite;
+  }
 }

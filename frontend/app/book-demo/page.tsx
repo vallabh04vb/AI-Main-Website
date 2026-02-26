@@ -30,13 +30,15 @@ const caseStudies = [
     metricLabel: "reduction in safety incidents",
     description: "Deployed real-time camera-based monitoring across 12 zones. Automated detection of PPE violations, forklift proximity risks, and restricted area breaches.",
     tags: ["Computer Vision", "YOLOv5", "AWS EKS"],
+    href: "/services?service=0",
   },
   {
-    title: "ICD-10 Coding Automation",
+    title: "Intelligent Document Extraction",
     metric: "50K+",
     metricLabel: "documents processed monthly",
-    description: "Built an intelligent extraction pipeline for a healthcare network processing insurance claims. Reduced manual coding effort by 90% with 97% accuracy.",
-    tags: ["Document AI", "Medical Coding", "NLP"],
+    description: "Built a full-spectrum document intelligence platform processing contracts, invoices, and medical records. Automated classification, extraction, and human-in-the-loop review with 95%+ accuracy.",
+    tags: ["Document AI", "OCR", "HITL Review"],
+    href: "/services?service=1",
   },
   {
     title: "Voice AI for Patient Onboarding",
@@ -44,6 +46,7 @@ const caseStudies = [
     metricLabel: "autonomous coverage",
     description: "Deployed a natural-sounding voice agent handling appointment scheduling, insurance verification, and new patient intake across five clinic locations.",
     tags: ["Voice AI", "Twilio", "Agentic Workflows"],
+    href: "/services?service=2",
   },
 ]
 
@@ -143,24 +146,30 @@ export default function BookDemoPage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                {...fadeInUp}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="glass-card glow-hover p-7 group flex flex-col"
-              >
-                <Quote className="h-5 w-5 text-muted-foreground/40 mb-4" strokeWidth={1.5} />
-                <p className="text-sm text-foreground/80 leading-relaxed mb-6 flex-1">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div>
-                  <p className="text-sm font-medium text-foreground">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.company}</p>
+          {/* Auto-scrolling carousel */}
+          <div className="relative overflow-hidden">
+            {/* Fade edges */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[hsl(220,8%,3%)] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[hsl(220,8%,3%)] to-transparent" />
+
+            <div className="flex gap-4 animate-carousel hover:[animation-play-state:paused]">
+              {/* Duplicate items for seamless loop */}
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="glass-card glow-hover p-7 flex flex-col shrink-0 w-[340px] sm:w-[400px]"
+                >
+                  <Quote className="h-5 w-5 text-muted-foreground/40 mb-4" strokeWidth={1.5} />
+                  <p className="text-sm text-foreground/80 leading-relaxed mb-6 flex-1">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </p>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.company}</p>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -187,28 +196,36 @@ export default function BookDemoPage() {
                 key={index}
                 {...fadeInUp}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="glass-card glow-hover p-7 group flex flex-col"
               >
-                <div className="text-3xl font-bold text-foreground tracking-tighter mb-1">
-                  {study.metric}
-                </div>
-                <p className="text-xs text-muted-foreground mb-5">{study.metricLabel}</p>
-                <h3 className="text-lg font-bold text-foreground mb-2 tracking-tighter">
-                  {study.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
-                  {study.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {study.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] text-muted-foreground border border-border rounded-full px-2.5 py-0.5"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <Link
+                  href={study.href}
+                  className="glass-card glow-hover p-7 group flex flex-col h-full"
+                >
+                  <div className="text-3xl font-bold text-foreground tracking-tighter mb-1">
+                    {study.metric}
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-5">{study.metricLabel}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2 tracking-tighter">
+                    {study.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+                    {study.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {study.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] text-muted-foreground border border-border rounded-full px-2.5 py-0.5"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="inline-flex items-center text-xs text-muted-foreground/0 group-hover:text-muted-foreground transition-colors mt-auto">
+                    View service details
+                    <ArrowRight className="ml-1.5 h-3 w-3" strokeWidth={1.5} />
+                  </span>
+                </Link>
               </motion.div>
             ))}
           </div>

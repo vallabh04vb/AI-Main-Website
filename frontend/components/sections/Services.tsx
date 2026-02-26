@@ -4,13 +4,14 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Eye, FileSearch, Phone, Brain, TrendingUp, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { TiltCard } from "@/components/ui/tilt-card"
+import { ServiceDialog } from "@/components/ui/service-dialog"
+import { ServiceDialogContent } from "@/components/sections/service-dialog-content"
 
 const services = [
   {
     icon: Eye,
-    label: "Flagship",
     title: "VisionOps: Industrial Video Intelligence",
     description: "End-to-end computer vision pipelines that convert raw camera feeds into real-time operational data. Automated tracking, warehouse safety, and inventory logistics.",
     capabilities: [
@@ -22,26 +23,27 @@ const services = [
   {
     icon: FileSearch,
     title: "Extraction Engines",
-    description: "Intelligent systems that read, understand, and structure data from messy documents. ICD-10-CM coding, financial parsing, multimodal extraction.",
+    description: "AI-powered document intelligence that transforms unstructured data into actionable insights. Automated classification, extraction, validation, and human-in-the-loop review workflows.",
   },
   {
     icon: Phone,
     title: "Autonomous Voice",
-    description: "High-EQ voice agents for real-time phone interactions. Low-latency telephony, agentic workflows, zero robotic delay.",
+    description: "Production-grade AI voice agents that manage complex conversations end-to-end. Natural dialogue, real-time decision-making, and seamless system integration.",
   },
   {
     icon: Brain,
     title: "Knowledge Wrappers",
-    description: "Private AI layer across your internal systems. Enterprise RAG, system debugging, workflow orchestration.",
+    description: "Enterprise-grade AI layer that unifies your organization's knowledge. Intelligent search, contextual reasoning, and automated workflow execution across all systems.",
   },
   {
     icon: TrendingUp,
     title: "Growth Intelligence",
-    description: "Autonomous agents for lead gen, qualification, and personalized outreach at scale.",
+    description: "AI-driven revenue engine that identifies, scores, and engages high-value prospects. Predictive analytics, multi-channel orchestration, and autonomous pipeline management.",
   },
 ]
 
 export function Services() {
+  const [selectedService, setSelectedService] = useState<number | null>(null)
   const sectionRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -116,22 +118,17 @@ export function Services() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="lg:col-span-2"
             >
-              <TiltCard className="overflow-hidden">
+              <TiltCard className="overflow-hidden cursor-pointer" onClick={() => setSelectedService(0)}>
                 <div className="relative h-52 md:h-60 overflow-hidden">
                   <motion.div className="absolute inset-0" style={{ y: imageY }}>
                     <Image
-                      src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=500&fit=crop&q=80"
-                      alt="Industrial automation and computer vision"
+                      src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1200&h=500&fit=crop&q=80"
+                      alt="Industrial CCTV camera surveillance and monitoring"
                       fill
                       className="object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-700 ease-out"
                     />
                   </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E1012] via-[#0E1012]/60 to-[#0E1012]/15" />
-                  <div className="absolute top-5 left-5">
-                    <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-foreground/80 bg-background/40 backdrop-blur-sm border border-border/40 px-3 py-1 rounded-full">
-                      Flagship
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-8 md:p-10">
@@ -153,6 +150,9 @@ export function Services() {
                           </span>
                         ))}
                       </div>
+                      <p className="text-xs text-muted-foreground/0 group-hover:text-muted-foreground/60 transition-colors mt-4">
+                        Click to learn more
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export function Services() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
                 >
-                  <TiltCard className="p-8 h-full">
+                  <TiltCard className="p-8 h-full cursor-pointer" onClick={() => setSelectedService(index + 1)}>
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-background mb-5 group-hover:border-foreground/15 transition-colors">
                       <Icon className="h-[18px] w-[18px] text-foreground" strokeWidth={1.5} />
                     </div>
@@ -180,6 +180,9 @@ export function Services() {
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
+                    <p className="text-xs text-muted-foreground/0 group-hover:text-muted-foreground/60 transition-colors mt-3">
+                      Click to learn more
+                    </p>
                   </TiltCard>
                 </motion.div>
               )
@@ -187,6 +190,15 @@ export function Services() {
           </div>
         </motion.div>
       </div>
+
+      <ServiceDialog
+        open={selectedService !== null}
+        onClose={() => setSelectedService(null)}
+      >
+        {selectedService !== null && (
+          <ServiceDialogContent serviceIndex={selectedService} />
+        )}
+      </ServiceDialog>
     </section>
   )
 }

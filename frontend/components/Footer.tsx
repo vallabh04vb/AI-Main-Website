@@ -2,11 +2,11 @@ import Link from "next/link"
 
 const navigation = {
   services: [
-    { name: "VisionOps", href: "/services" },
-    { name: "Data Engines", href: "/services" },
-    { name: "Voice Systems", href: "/services" },
-    { name: "Knowledge Wrappers", href: "/services" },
-    { name: "Growth Intelligence", href: "/services" },
+    { name: "VisionOps", href: "/services?service=0" },
+    { name: "Data Engines", href: "/services?service=1" },
+    { name: "Voice Systems", href: "/services?service=2" },
+    { name: "Knowledge Wrappers", href: "/services?service=3" },
+    { name: "Growth Intelligence", href: "/services?service=4" },
   ],
   company: [
     { name: "Our Process", href: "/how-we-work" },

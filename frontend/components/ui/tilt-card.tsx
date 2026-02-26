@@ -7,9 +7,10 @@ import { cn } from "@/lib/utils"
 interface TiltCardProps {
   children: React.ReactNode
   className?: string
+  onClick?: () => void
 }
 
-export function TiltCard({ children, className }: TiltCardProps) {
+export function TiltCard({ children, className, onClick }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
@@ -31,6 +32,7 @@ export function TiltCard({ children, className }: TiltCardProps) {
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
+      onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       animate={{
