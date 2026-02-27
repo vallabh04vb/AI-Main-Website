@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   title: "CorePlex.ai | Elite Applied AI Engineering Studio",
   description: "We engineer high-scale AI systems that subtract manual toil from your core operations. Vision pipelines, intelligent data engines, autonomous voice, and enterprise automation — prototype-first, production-ready.",
   keywords: ["AI engineering studio", "computer vision pipelines", "industrial automation", "voice AI", "intelligent data extraction", "enterprise AI", "AWS EKS", "production AI systems"],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "CorePlex.ai | Elite Applied AI Engineering Studio",
     description: "Engineering intelligence for operational excellence. We analyze, prototype, and deploy high-scale AI systems that subtract manual toil from your core logic.",
