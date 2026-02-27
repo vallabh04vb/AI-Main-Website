@@ -49,7 +49,7 @@ export function ServiceDialog({ open, onClose, children }: ServiceDialogProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 30 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="dialog-panel relative z-10 w-full max-w-[720px] max-h-[88vh] overflow-y-auto rounded-2xl border border-white/[0.06] shadow-[0_32px_80px_-20px_rgba(0,0,0,0.8)]"
+            className="dialog-panel relative z-10 w-full max-w-[960px] max-h-[90vh] overflow-y-auto rounded-2xl border border-white/[0.06] shadow-[0_32px_80px_-20px_rgba(0,0,0,0.8)]"
             style={{
               background: "linear-gradient(180deg, hsl(220 8% 7%) 0%, hsl(220 6% 5%) 100%)",
             }}

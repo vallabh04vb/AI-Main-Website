@@ -122,8 +122,8 @@ export function Services() {
                 <div className="relative h-52 md:h-60 overflow-hidden">
                   <motion.div className="absolute inset-0" style={{ y: imageY }}>
                     <Image
-                      src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1200&h=500&fit=crop&q=80"
-                      alt="Industrial CCTV camera surveillance and monitoring"
+                      src="/services/visionops-card.jpg"
+                      alt="VisionOps AI object detection and tracking"
                       fill
                       className="object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-700 ease-out"
                     />

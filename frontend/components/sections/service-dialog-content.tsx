@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowRight, Eye, FileSearch, Phone, Brain, TrendingUp,
@@ -37,6 +38,7 @@ interface ServiceContent {
   title: string
   badge?: string
   tagline: string
+  visualSrc?: string
   overview: string[]
   flow: FlowStep[]
   features: Feature[]
@@ -55,9 +57,9 @@ const serviceContents: ServiceContent[] = [
     icon: Eye,
     title: "VisionOps",
     tagline: "Industrial Video Intelligence",
+    visualSrc: "/services/visionops-flow.svg",
     overview: [
-      "VisionOps transforms your existing camera infrastructure into a fully autonomous operational intelligence layer. It connects to any IP or CCTV camera, ingests live video streams through a distributed processing pipeline, and applies real-time AI models for detection, classification, and tracking — delivering structured operational insights at scale.",
-      "The platform goes beyond simple detection. It provides zone-based behavioral analytics, cross-camera object re-identification, temporal pattern recognition, and predictive alerting. Every frame is analyzed, every anomaly is quantified, and every insight is routed to the right team through configurable dashboards and automated workflows.",
+      "VisionOps transforms your existing camera infrastructure into a fully autonomous operational intelligence layer — connecting to any IP or CCTV camera, applying real-time AI detection, and delivering structured insights at scale.",
       "Built for environments where downtime costs and compliance failures are measured in millions — warehouses, manufacturing floors, logistics hubs, retail networks, and critical infrastructure.",
     ],
     flow: [
@@ -94,6 +96,7 @@ const serviceContents: ServiceContent[] = [
     icon: FileSearch,
     title: "Extraction Engines",
     tagline: "Intelligent Document Processing & Insights",
+    visualSrc: "/services/extraction-flow.svg",
     overview: [
       "Extraction Engines is a full-spectrum document intelligence platform that ingests any document type — PDFs, scanned images, spreadsheets, emails, handwritten forms, contracts, medical records, invoices, and more — and transforms them into structured, actionable data. The system doesn't just extract text; it understands document context, classifies content semantically, and maps relationships across fields and pages.",
       "What sets it apart is the end-to-end workflow. Documents are automatically classified, routed through the appropriate extraction pipeline, validated against business rules, and surfaced in an insights dashboard where teams can review, approve, or flag exceptions. Low-confidence extractions are intelligently queued for human review with highlighted fields and suggested corrections — creating a feedback loop that makes the system smarter over time.",
@@ -132,6 +135,7 @@ const serviceContents: ServiceContent[] = [
     icon: Phone,
     title: "Autonomous Voice",
     tagline: "AI Voice Agents for Complex Conversations",
+    visualSrc: "/services/voice-flow.svg",
     overview: [
       "Autonomous Voice deploys production-grade AI agents that handle real-time phone conversations with the nuance, context awareness, and decision-making ability of your best human representatives. These aren't scripted bots — they're reasoning agents that listen, understand intent, navigate complex multi-turn dialogues, and execute actions across your business systems in real time.",
       "Each voice agent is purpose-built on your domain knowledge, brand tone, compliance requirements, and escalation protocols. They manage inbound and outbound calls, handle interruptions naturally, resolve ambiguity through clarifying questions, and seamlessly transfer to human agents when the situation demands it — with full context handoff so customers never repeat themselves.",
@@ -170,6 +174,7 @@ const serviceContents: ServiceContent[] = [
     icon: Brain,
     title: "Knowledge Wrappers",
     tagline: "Enterprise AI That Knows Your Business",
+    visualSrc: "/services/knowledge-flow.svg",
     overview: [
       "Knowledge Wrappers creates an intelligent AI layer that sits across your entire organization's knowledge — codebases, documentation, CRMs, ticketing systems, wikis, communication archives, databases, and APIs. Using advanced retrieval-augmented generation, it delivers precise, source-cited answers from your own data while keeping everything within your security perimeter.",
       "But it goes far beyond search. Knowledge Wrappers powers contextual copilots for engineering, support, legal, and operations teams — agents that don't just find information but reason over it, connect dots across systems, and take action. An engineer gets debugging assistance that cross-references logs, code, and past incident reports. A support agent gets resolution recommendations backed by historical ticket data and product documentation.",
@@ -208,6 +213,7 @@ const serviceContents: ServiceContent[] = [
     icon: TrendingUp,
     title: "Growth Intelligence",
     tagline: "AI-Driven Revenue Acceleration",
+    visualSrc: "/services/growth-flow.svg",
     overview: [
       "Growth Intelligence deploys autonomous AI agents across your entire revenue pipeline — from prospect identification and scoring to personalized multi-channel outreach and pipeline management. The system continuously analyzes thousands of signals from public data, intent data, technographic profiles, and your CRM history to identify the highest-probability opportunities before your competitors do.",
       "Each prospect receives a dynamically generated outreach sequence tailored to their company context, pain points, technology stack, and buying signals. The AI crafts unique messages — not templates — across email, LinkedIn, and phone, adapting tone and timing based on engagement patterns and response behavior. Every touchpoint is coordinated, every follow-up is strategic.",
@@ -394,7 +400,19 @@ export function ServiceDialogContent({ serviceIndex }: { serviceIndex: number })
 
         <div>
           <SectionLabel>How It Works</SectionLabel>
-          <FlowDiagram steps={data.flow} />
+          {data.visualSrc ? (
+            <div className="relative rounded-xl border border-white/[0.06] overflow-hidden bg-[hsl(220,8%,8%)] p-4 sm:p-6 flex items-center justify-center">
+              <Image
+                src={data.visualSrc}
+                alt={`${data.title} platform flow`}
+                width={960}
+                height={720}
+                className="w-full h-auto max-h-[60vh] object-contain"
+              />
+            </div>
+          ) : (
+            <FlowDiagram steps={data.flow} />
+          )}
         </div>
 
         <div>
