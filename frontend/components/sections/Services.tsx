@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Eye, FileSearch, Phone, Brain, TrendingUp, ArrowRight } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState } from "react"
 import { TiltCard } from "@/components/ui/tilt-card"
@@ -119,16 +118,18 @@ export function Services() {
               className="lg:col-span-2"
             >
               <TiltCard className="overflow-hidden cursor-pointer" onClick={() => setSelectedService(0)}>
-                <div className="relative h-52 md:h-60 overflow-hidden">
-                  <motion.div className="absolute inset-0" style={{ y: imageY }}>
-                    <Image
-                      src="/services/visionops-card.jpg"
-                      alt="VisionOps AI object detection and tracking"
-                      fill
-                      className="object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-700 ease-out"
+                <div className="relative h-52 md:h-60 overflow-hidden" style={{ marginBottom: -2 }}>
+                  <div className="absolute inset-0" style={{ transform: "translateZ(0)" }}>
+                    <video
+                      src="/services/visionops-card.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover scale-[1.15] group-hover:scale-[1.2] transition-transform duration-700 ease-out"
                     />
-                  </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E1012] via-[#0E1012]/60 to-[#0E1012]/15" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--card))] via-[hsl(var(--card))]/60 to-transparent" />
                 </div>
 
                 <div className="p-8 md:p-10">
