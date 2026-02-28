@@ -49,7 +49,6 @@ export function Services() {
     offset: ["start end", "end start"],
   })
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"])
   const orbX = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
   const orbY = useTransform(scrollYProgress, [0, 1], ["30%", "-30%"])
 
@@ -118,42 +117,45 @@ export function Services() {
               className="lg:col-span-2"
             >
               <TiltCard className="overflow-hidden cursor-pointer" onClick={() => setSelectedService(0)}>
-                <div className="relative h-52 md:h-60 overflow-hidden" style={{ marginBottom: -2 }}>
-                  <div className="absolute inset-0" style={{ transform: "translateZ(0)" }}>
-                    <video
-                      src="/services/visionops-card.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover scale-[1.15] group-hover:scale-[1.2] transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--card))] via-[hsl(var(--card))]/60 to-transparent" />
-                </div>
+                {/* Video + content as single stacked layout — no sibling seam */}
+                <div className="relative">
+                  {/* Video background — absolutely positioned, covers top portion */}
+                  <video
+                    src="/services/visionops-card.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                    style={{ transform: "translateZ(0)" }}
+                  />
+                  {/* Gradient that fades video into card background */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--card))] from-40% via-[hsl(var(--card))]/80 via-55% to-transparent" />
 
-                <div className="p-8 md:p-10">
-                  <div className="flex items-start gap-6">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-border bg-background group-hover:border-foreground/15 transition-colors">
-                      <Eye className="h-5 w-5 text-foreground" strokeWidth={1.5} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 tracking-tighter">
-                        {services[0].title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed mb-5 max-w-3xl">
-                        {services[0].description}
-                      </p>
-                      <div className="flex flex-wrap gap-3">
-                        {services[0].capabilities?.map((cap, i) => (
-                          <span key={i} className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">
-                            {cap}
-                          </span>
-                        ))}
+                  {/* Content sits on top with enough top padding for video to show */}
+                  <div className="relative z-10 pt-44 md:pt-52 p-8 md:p-10">
+                    <div className="flex items-start gap-6">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-border bg-background group-hover:border-foreground/15 transition-colors">
+                        <Eye className="h-5 w-5 text-foreground" strokeWidth={1.5} />
                       </div>
-                      <p className="text-xs text-muted-foreground/0 group-hover:text-muted-foreground/60 transition-colors mt-4">
-                        Click to learn more
-                      </p>
+                      <div className="flex-1">
+                        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 tracking-tighter">
+                          {services[0].title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed mb-5 max-w-3xl">
+                          {services[0].description}
+                        </p>
+                        <div className="flex flex-wrap gap-3">
+                          {services[0].capabilities?.map((cap, i) => (
+                            <span key={i} className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">
+                              {cap}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-xs text-muted-foreground/0 group-hover:text-muted-foreground/60 transition-colors mt-4">
+                          Click to learn more
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
