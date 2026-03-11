@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Mic } from "lucide-react"
 import Image from "next/image"
 import { useRef } from "react"
 
@@ -153,12 +153,13 @@ export function Hero() {
               </Link>
             </Button>
             <Button
-              asChild
               variant="outline"
               size="lg"
               className="border-border/60 hover:border-foreground/20 bg-background/10 backdrop-blur-sm px-8 py-6 text-sm font-medium tracking-wide uppercase transition-all duration-200"
+              onClick={() => (window as unknown as Record<string, () => void>).__vapiStart?.()}
             >
-              <Link href="/contact">Share Your Challenge</Link>
+              <Mic className="mr-2 h-4 w-4" strokeWidth={1.5} />
+              Talk to Us
             </Button>
           </motion.div>
         </div>
