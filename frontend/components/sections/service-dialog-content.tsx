@@ -10,6 +10,7 @@ import {
   CheckCircle2, GitBranch, Workflow, ScanLine, FileCheck,
   MessageSquare, Headphones, LayoutDashboard, Network,
   BrainCircuit, BookOpen, Plug, Bot, LineChart, UserCheck,
+  Radar, MapPin, Star, Send, Clock, MessageCircle,
   type LucideIcon,
 } from "lucide-react"
 
@@ -245,6 +246,45 @@ const serviceContents: ServiceContent[] = [
       { value: "90 days", label: "Time to measurable ROI" },
     ],
     outcome: "Clients see 3x increase in qualified pipeline, 50% reduction in cost per lead, and measurable ROI within 90 days — with sales teams spending their time closing, not prospecting.",
+  },
+
+  /* 5 — Autonomous Lead Intelligence */
+  {
+    icon: Radar,
+    title: "Autonomous Lead Intelligence",
+    tagline: "AI-Powered Outreach Engine on Autopilot",
+    overview: [
+      "We deploy a fully autonomous lead generation agent that scrapes Google Maps and business directories across any city or country, enriches each lead with contact details and website data, scores them using AI for fit and priority, then sends hyper-personalised outreach emails — all without human intervention. When a prospect replies, you get notified instantly.",
+      "The system targets businesses by category — dental clinics, restaurants, salons, law firms, real estate agencies — and crafts unique outreach messages tailored to each business type, location, and online presence. No templates, no generic blasts. Every email reads like it was written by someone who actually researched the business.",
+      "Ideal for agencies, SaaS companies, and local service providers looking to build an outbound pipeline without hiring a sales team. The agent runs 24/7, contacting 500+ qualified leads per month while you focus on closing deals.",
+    ],
+    flow: [
+      { label: "Directory Scraping", detail: "Google Maps + directories" },
+      { label: "Data Enrichment", detail: "Contact + website data" },
+      { label: "AI Scoring", detail: "Fit & priority ranking" },
+      { label: "Personalised Outreach", detail: "Email via your domain" },
+      { label: "Reply Routing", detail: "Slack / WhatsApp alerts" },
+    ],
+    features: [
+      { icon: MapPin, title: "Global Directory Scraping", description: "Scrapes Google Maps and business directories across US, Europe, and beyond — any city, any category, any scale" },
+      { icon: Star, title: "AI Lead Scoring", description: "Each lead scored for fit and priority using Claude AI — filters out low-quality prospects before a single email is sent" },
+      { icon: Send, title: "Hyper-Personalised Emails", description: "Every message uniquely generated per business type, location, and online presence — not templates, not mail-merge" },
+      { icon: Mail, title: "Your Domain, Zero Fees", description: "Outreach sent via your own SMTP domain — full deliverability control, zero platform fees, no third-party dependencies" },
+      { icon: MessageCircle, title: "Real-Time Reply Alerts", description: "Instant notifications via Slack or WhatsApp the moment a prospect replies — never miss a warm lead" },
+      { icon: Clock, title: "24/7 Autopilot Operation", description: "Runs continuously with configurable targeting, pacing, and follow-up sequences — 500+ leads contacted per month" },
+    ],
+    useCases: [
+      { industry: "Digital Agencies", description: "Build a predictable outbound pipeline targeting local businesses — restaurants, salons, clinics — without hiring SDRs or paying for lead lists" },
+      { industry: "SaaS Companies", description: "Identify and engage SMBs showing buying signals in your target verticals across multiple geographies simultaneously" },
+      { industry: "Local Service Providers", description: "Reach every potential client in your service area with personalised outreach that references their specific business and online presence" },
+      { industry: "Consultancies & Freelancers", description: "Scale your client acquisition from manual networking to systematic, AI-driven outreach across your ideal client categories" },
+    ],
+    metrics: [
+      { value: "500+", label: "Leads contacted / month" },
+      { value: "$0", label: "Platform fees" },
+      { value: "24/7", label: "Fully autonomous" },
+    ],
+    outcome: "Clients launch a fully autonomous outbound engine within days — contacting 500+ qualified leads per month, receiving real-time reply alerts, and building pipeline without hiring a single salesperson or paying for lead generation platforms.",
   },
 ]
 

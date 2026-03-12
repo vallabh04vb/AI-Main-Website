@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import { Eye, FileSearch, Phone, Brain, TrendingUp } from "lucide-react"
+import { Eye, FileSearch, Phone, Brain, TrendingUp, Radar } from "lucide-react"
 import { ServiceDialog } from "@/components/ui/service-dialog"
 import { ServiceDialogContent } from "@/components/sections/service-dialog-content"
 
@@ -65,6 +65,20 @@ const services = [
       "Predictive lead scoring with machine learning models ranking by conversion probability and timing",
       "Hyper-personalized outreach — every message uniquely generated per prospect, not templates",
       "Multi-channel orchestration across email, LinkedIn, and phone with intelligent timing optimization",
+    ],
+  },
+  {
+    icon: Radar,
+    title: "Autonomous Lead Intelligence",
+    description: "Fully autonomous lead generation agent that scrapes Google Maps and business directories across any city or country, enriches each lead with contact details and website data, scores them using AI, then sends hyper-personalised outreach emails — all without human intervention.",
+    outcome: "500+ qualified leads contacted per month on full autopilot — zero sales hires needed.",
+    capabilities: [
+      "Google Maps scraping across US, Europe, and beyond with real-time business data enrichment",
+      "AI-scored lead qualification per business category — dental, restaurant, salon, clinic, and more",
+      "Personalised email generation per business type using Claude AI for human-quality messaging",
+      "Automated outreach via your own domain — zero platform fees, full deliverability control",
+      "Real-time reply notifications via Slack or WhatsApp the moment a prospect responds",
+      "Runs 24/7 on autopilot with configurable targeting, pacing, and follow-up sequences",
     ],
   },
 ]

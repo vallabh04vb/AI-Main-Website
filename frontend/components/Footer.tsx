@@ -7,6 +7,7 @@ const navigation = {
     { name: "Voice Systems", href: "/services?service=2" },
     { name: "Knowledge Wrappers", href: "/services?service=3" },
     { name: "Growth Intelligence", href: "/services?service=4" },
+    { name: "Lead Intelligence", href: "/services?service=5" },
   ],
   company: [
     { name: "Our Process", href: "/how-we-work" },

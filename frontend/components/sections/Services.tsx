@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Eye, FileSearch, Phone, Brain, TrendingUp, ArrowRight } from "lucide-react"
+import { Eye, FileSearch, Phone, Brain, TrendingUp, Radar, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useRef, useState } from "react"
 import { TiltCard } from "@/components/ui/tilt-card"
@@ -38,6 +38,11 @@ const services = [
     icon: TrendingUp,
     title: "Growth Intelligence",
     description: "AI-driven revenue engine that identifies, scores, and engages high-value prospects. Predictive analytics, multi-channel orchestration, and autonomous pipeline management.",
+  },
+  {
+    icon: Radar,
+    title: "Autonomous Lead Intelligence",
+    description: "AI-powered outreach engine that finds, qualifies, and contacts your ideal clients — on autopilot. Scrapes directories, scores leads with AI, and sends hyper-personalised emails 24/7.",
   },
 ]
 
@@ -93,7 +98,7 @@ export function Services() {
               Services & Capabilities
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Five pillars of applied AI. Each built for production scale, not demos.
+              Six pillars of applied AI. Each built for production scale, not demos.
             </p>
           </motion.div>
           <Link
