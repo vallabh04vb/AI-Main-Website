@@ -3,13 +3,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-  ArrowRight, Eye, FileSearch, Phone, Brain, TrendingUp,
+  ArrowRight, Eye, FileSearch, Phone, Brain,
   Camera, BarChart3, Shield, Layers, Cpu, FileText, Mic,
-  Database, Search, Target, Mail, Users, Zap, Lock, Bell,
-  Gauge, Globe, Settings, ChevronRight, Sparkles,
+  Database, Search, Mail, Lock, Bell,
+  ChevronRight, Sparkles,
   CheckCircle2, GitBranch, Workflow, ScanLine, FileCheck,
   MessageSquare, Headphones, LayoutDashboard, Network,
-  BrainCircuit, BookOpen, Plug, Bot, LineChart, UserCheck,
+  BrainCircuit, BookOpen, Plug, Bot,
   Radar, MapPin, Star, Send, Clock, MessageCircle,
   type LucideIcon,
 } from "lucide-react"
@@ -209,46 +209,7 @@ const serviceContents: ServiceContent[] = [
     outcome: "Teams report 50% faster information retrieval, 35% reduction in internal escalations, and measurably faster onboarding — with all data remaining fully within the organization's security boundary.",
   },
 
-  /* 4 — Growth Intelligence */
-  {
-    icon: TrendingUp,
-    title: "Growth Intelligence",
-    tagline: "AI-Driven Revenue Acceleration",
-    visualSrc: "/services/growth-flow.svg",
-    overview: [
-      "Growth Intelligence deploys autonomous AI agents across your entire revenue pipeline — from prospect identification and scoring to personalized multi-channel outreach and pipeline management. The system continuously analyzes thousands of signals from public data, intent data, technographic profiles, and your CRM history to identify the highest-probability opportunities before your competitors do.",
-      "Each prospect receives a dynamically generated outreach sequence tailored to their company context, pain points, technology stack, and buying signals. The AI crafts unique messages — not templates — across email, LinkedIn, and phone, adapting tone and timing based on engagement patterns and response behavior. Every touchpoint is coordinated, every follow-up is strategic.",
-      "Beyond outreach, the platform provides real-time pipeline analytics, conversion funnel optimization, rep performance insights, and predictive revenue forecasting — giving leadership complete visibility into growth trajectory and bottlenecks.",
-    ],
-    flow: [
-      { label: "Signal Analysis", detail: "Intent + firmographic" },
-      { label: "AI Scoring", detail: "Predictive models" },
-      { label: "Outreach", detail: "Multi-channel AI" },
-      { label: "Pipeline", detail: "Qualified & managed" },
-    ],
-    features: [
-      { icon: Target, title: "Intelligent Prospecting", description: "AI identifies ideal prospects from firmographic, technographic, and intent signals across millions of data points" },
-      { icon: Gauge, title: "Predictive Lead Scoring", description: "Machine learning models rank prospects by conversion probability, deal size potential, and timing signals" },
-      { icon: Mail, title: "Hyper-Personalized Outreach", description: "Every message is uniquely generated for each prospect — their context, pain points, and buying signals" },
-      { icon: Globe, title: "Multi-Channel Orchestration", description: "Email, LinkedIn, phone, and ads — coordinated sequences with intelligent timing and channel optimization" },
-      { icon: LineChart, title: "Pipeline Analytics", description: "Real-time funnel visualization, conversion rate tracking, bottleneck identification, and revenue forecasting" },
-      { icon: UserCheck, title: "Rep Enablement", description: "AI-generated briefings, talk tracks, and objection handling for every prospect meeting" },
-    ],
-    useCases: [
-      { industry: "B2B SaaS", description: "Identify companies showing buying signals, auto-enroll in personalized sequences, and hand off sales-ready leads with full context to AEs" },
-      { industry: "Professional Services", description: "Target decision-makers at organizations matching your ideal client profile with thought leadership-driven outreach" },
-      { industry: "Recruiting & Staffing", description: "Source and engage passive candidates at scale with personalized outreach that reflects their career trajectory and interests" },
-      { industry: "Financial Services", description: "Identify businesses with financing needs through market signals and engage with tailored, compliance-approved messaging" },
-    ],
-    metrics: [
-      { value: "3x", label: "More qualified pipeline" },
-      { value: "50%", label: "Lower cost per lead" },
-      { value: "90 days", label: "Time to measurable ROI" },
-    ],
-    outcome: "Clients see 3x increase in qualified pipeline, 50% reduction in cost per lead, and measurable ROI within 90 days — with sales teams spending their time closing, not prospecting.",
-  },
-
-  /* 5 — Autonomous Lead Intelligence */
+  /* 4 — Autonomous Lead Intelligence */
   {
     icon: Radar,
     title: "Autonomous Lead Intelligence",

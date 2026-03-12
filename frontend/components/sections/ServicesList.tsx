@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import { Eye, FileSearch, Phone, Brain, TrendingUp, Radar } from "lucide-react"
+import { Eye, FileSearch, Phone, Brain, Radar } from "lucide-react"
 import { ServiceDialog } from "@/components/ui/service-dialog"
 import { ServiceDialogContent } from "@/components/sections/service-dialog-content"
 
@@ -53,18 +53,6 @@ const services = [
       "Source-cited responses with relevance scoring and confidence indicators for every answer",
       "Agentic workflows — create tickets, update records, trigger deployments across systems",
       "Knowledge analytics — track query patterns, surface gaps, and measure organizational knowledge health",
-    ],
-  },
-  {
-    icon: TrendingUp,
-    title: "Automated Growth & Marketing Intelligence",
-    description: "AI-driven revenue engine that identifies, scores, and engages high-value prospects across every channel. Predictive analytics, hyper-personalized outreach at scale, and autonomous pipeline management — from first touch to qualified lead.",
-    outcome: "3x increase in qualified pipeline and 50% lower cost per lead within 90 days.",
-    capabilities: [
-      "Intelligent prospecting from firmographic, technographic, and intent signals across millions of data points",
-      "Predictive lead scoring with machine learning models ranking by conversion probability and timing",
-      "Hyper-personalized outreach — every message uniquely generated per prospect, not templates",
-      "Multi-channel orchestration across email, LinkedIn, and phone with intelligent timing optimization",
     ],
   },
   {
